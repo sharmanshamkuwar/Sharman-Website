@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        /* Navigation Menu */
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+            text-align: center;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="cart.html">Cart</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Payment Form</h1>
+        <form action="/submit-payment" method="POST">
+            <!-- Personal Information Section -->
+            <h3>Personal Information</h3>
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first-name" required>
+
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last-name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+
+            <!-- Billing Information Section -->
+            <h3>Billing Information</h3>
+            <label for="address">Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="zip">Zip Code</label>
+            <input type="text" id="zip" name="zip" required>
+
+            <label for="country">Country</label>
+            <select id="country" name="country" required>
+                <option value="usa">United States</option>
+                <option value="canada">Canada</option>
+                <option value="uk">United Kingdom</option>
+                <option value="australia">Australia</option>
+                <!-- Add more countries as needed -->
+            </select>
+
+            <!-- Payment Information Section -->
+            <h3>Payment Information</h3>
+            <label for="payment-method">Payment Method</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="credit-debit-card">Credit/Debit Card</option>
+                <option value="upi">UPI (Unified Payments Interface)</option>
+                <option value="paypal">PayPal</option>
+                <option value="bank-transfer">Bank Transfer</option>
+                <option value="google-pay">Google Pay</option>
+                <option value="apple-pay">Apple Pay</option>
+                <option value="cash-on-delivery">Cash on Delivery</option>
+            </select>
+
+            <!-- Credit/Debit Card Information -->
+            <div id="card-details">
+                <label for="card-name">Cardholder Name</label>
+                <input type="text" id="card-name" name="card-name" required>
+
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required pattern="\d{16}" placeholder="16-digit card number">
+
+                <label for="expiry-date">Expiry Date (MM/YY)</label>
+                <input type="text" id="expiry-date" name="expiry-date" required pattern="\d{2}/\d{2}" placeholder="MM/YY">
+
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required pattern="\d{3}" placeholder="3-digit CVV">
+            </div>
+
+            <!-- UPI Information -->
+            <div id="upi-details" style="display:none;">
+                <label for="upi-id">UPI ID</label>
+                <input type="text" id="upi-id" name="upi-id" placeholder="Enter your UPI ID">
+            </div>
+
+            <!-- PayPal Information -->
+            <div id="paypal-details" style="display:none;">
+                <label for="paypal-email">PayPal Email</label>
+                <input type="email" id="paypal-email" name="paypal-email" placeholder="Enter PayPal email">
+            </div>
+
+            <!-- Bank Transfer Information -->
+            <div id="bank-transfer-details" style="display:none;">
+                <label for="bank-account-number">Bank Account Number</label>
+                <input type="text" id="bank-account-number" name="bank-account-number" placeholder="Enter bank account number">
+
+                <label for="bank-ifsc-code">Bank IFSC Code</label>
+                <input type="text" id="bank-ifsc-code" name="bank-ifsc-code" placeholder="Enter bank IFSC code">
+            </div>
+
+            <!-- Google Pay Information -->
+            <div id="google-pay-details" style="display:none;">
+                <label for="google-pay-number">Google Pay Number</label>
+                <input type="text" id="google-pay-number" name="google-pay-number" placeholder="Enter Google Pay number">
+            </div>
+
+            <!-- Apple Pay Information -->
+            <div id="apple-pay-details" style="display:none;">
+                <label for="apple-pay-id">Apple Pay ID</label>
+                <input type="text" id="apple-pay-id" name="apple-pay-id" placeholder="Enter Apple Pay ID">
+            </div>
+
+            <!-- Cash on Delivery Information -->
+            <div id="cod-details" style="display:none;">
+                <p>Cash on delivery will be available upon delivery.</p>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide payment details based on selected payment method
+        document.getElementById('payment-method').addEventListener('change', function() {
+            var paymentMethod = this.value;
+
+            // Hide all payment method details initially
+            document.getElementById('card-details').style.display = 'none';
+            document.getElementById('upi-details').style.display = 'none';
+            document.getElementById('paypal-details').style.display = 'none';
+            document.getElementById('bank-transfer-details').style.display = 'none';
+            document.getElementById('google-pay-details').style.display = 'none';
+            document.getElementById('apple-pay-details').style.display = 'none';
+            document.getElementById('cod-details').style.display = 'none';
+
+            // Show details for the selected payment method
+            if (paymentMethod === 'credit-debit-card') {
+                document.getElementById('card-details').style.display = 'block';
+            } else if (paymentMethod === 'upi') {
+                document.getElementById('upi-details').style.display = 'block';
+            } else if (paymentMethod === 'paypal') {
+                document.getElementById('paypal-details').style.display = 'block';
+            } else if (paymentMethod === 'bank-transfer') {
+                document.getElementById('bank-transfer-details').style.display = 'block';
+            } else if (paymentMethod === 'google-pay') {
+                document.getElementById('google-pay-details').style.display = 'block';
+            } else if (paymentMethod === 'apple-pay') {
+                document.getElementById('apple-pay-details').style.display = 'block';
+            } else if (paymentMethod === 'cash-on-delivery') {
+                document.getElementById('cod-details').style.display = 'block';
+            }
+        });
+    </script>
+
+</body>
+</html>
