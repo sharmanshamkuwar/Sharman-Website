@@ -25,7 +25,7 @@
     </header>
     <main class="signup">
         <h2>Sign Up</h2>
-        <form action="login.html" method="get">
+        <form id="signupForm">
             <div>
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
@@ -46,7 +46,7 @@
     </footer>
     <script>
         // Add an event listener to the form's submit event
-        document.querySelector('form').addEventListener('submit', function(event) {
+        document.querySelector('#signupForm').addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the form from submitting and reloading the page
             
             // Get the values from the form fields
@@ -61,16 +61,21 @@
                 password: password
             };
     
-            // Store the user data in local storage
-            localStorage.setItem('user', JSON.stringify(user));
+            // Get the existing users array from localStorage (or create an empty array if none exist)
+            let users = JSON.parse(localStorage.getItem('users')) || [];
+    
+            // Push the new user to the array
+            users.push(user);
+    
+            // Store the updated users array in local storage
+            localStorage.setItem('users', JSON.stringify(users));
     
             // Show the success popup
             alert('Account created successfully! Welcome, ' + username);
     
-            // Redirect to the login page or perform any other desired action
-            window.location.href = 'login.html'; // This redirects to the login page after successful registration
+            // Redirect to the login page
+            window.location.href = 'login.html'; // Redirect to login page after successful registration
         });
     </script>
-    
 </body>
 </html>
