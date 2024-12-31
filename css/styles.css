@@ -145,8 +145,6 @@ footer {
     background: #555;
 }
 
-
-
 /* About Us Page */
 .about {
     max-width: 1200px;
@@ -547,4 +545,66 @@ footer {
 
 .signup form button:hover, .login form button:hover {
     background: #555;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-banner {
+        padding: 50px 20px;
+    }
+
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust grid for smaller screens */
+    }
+
+    .product-card {
+        padding: 15px;
+    }
+
+    .cart table {
+        font-size: 0.9em;
+    }
+
+    .cart .total h3 {
+        font-size: 1.2em;
+    }
+
+    .product-details {
+        flex-direction: column;
+    }
+
+    .product-info {
+        padding: 10px;
+    }
+
+    .signup, .login {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0 10px;
+    }
+
+    .hero-banner h1 {
+        font-size: 2em;
+    }
+
+    .hero-banner p {
+        font-size: 1em;
+    }
+
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr 1fr; /* Two columns on smaller screens */
+    }
 }
