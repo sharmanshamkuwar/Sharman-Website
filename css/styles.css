@@ -224,9 +224,9 @@ footer {
 
 /* Cart Page */
 .cart {
-    max-width: 1400px; /* Increased the max-width */
+    max-width: 1400px;
     margin: 20px auto;
-    padding: 0 40px; /* Increased the padding */
+    padding: 0 40px;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -236,7 +236,7 @@ footer {
 .cart h2 {
     text-align: center;
     margin-bottom: 20px;
-    font-size: 2em; /* Increased font size */
+    font-size: 2em;
 }
 
 .cart table {
@@ -452,7 +452,7 @@ footer {
 
 .products .product-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Adjusted to show 4 products per row */
+    grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
@@ -558,8 +558,16 @@ footer {
         padding: 50px 20px;
     }
 
+    .hero-banner h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-banner p {
+        font-size: 1.1em;
+    }
+
     .product-grid {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust grid for smaller screens */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
     .product-card {
